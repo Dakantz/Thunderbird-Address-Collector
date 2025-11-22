@@ -1,0 +1,22 @@
+{
+    "manifest_version": 2,
+    "name": "Address Collector",
+    "description": "Collect all email addresses from your Thunderbird email (folders).",
+    "version": "0.1.0",
+    "author": "Benedikt Kantz",
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "benedikt@dakantz",
+            "strict_min_version": "128.0"
+        }
+    },
+    "options_ui": {
+        "page": "dist-sites/options/index.html",
+        "open_in_tab": true
+    },
+    "background": {
+        "scripts": [
+            "dist-background/background-script.es.js"
+        ]
+    }
+}

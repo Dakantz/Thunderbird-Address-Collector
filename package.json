@@ -1,0 +1,36 @@
+{
+  "name": "thunderbird-address-collector",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/Dakantz/Thunderbird-Address-Collector#readme",
+  "bugs": {
+    "url": "https://github.com/Dakantz/Thunderbird-Address-Collector/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dakantz/Thunderbird-Address-Collector.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "src/background/background.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch:background": "bun vite --config vite.config.background.js --watch",
+    "watch:sites": "bun vite --config vite.config.sites.js --watch",
+    "build:background": "bun vite --config vite.config.background.js --mode production",
+    "build:sites": "bun vite --config vite.config.sites.js --mode production"
+
+  },
+  "devDependencies": {
+    "bun": "^1.3.3",
+    "tsc": "^2.0.4",
+    "typescript": "^5.9.3",
+    "vite": "^7.2.4"
+  },
+  "dependencies": {
+    "@types/thunderbird-webext-browser": "^127.0.0",
+    "@vitejs/plugin-vue": "^6.0.2",
+    "vue": "^3.5.24"
+  }
+}
