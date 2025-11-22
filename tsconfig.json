@@ -1,29 +1,32 @@
 {
   "compilerOptions": {
-    "module": "es2022",
-    "moduleResolution": "Node",
-    "declaration": true,
-    "removeComments": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "allowSyntheticDefaultImports": true,
-    "target": "es2017",
-    "sourceMap": true,
-    "outDir": "dist-sites",
-    "baseUrl": "./",
-    "incremental": true,
-    "skipLibCheck": true,
-    "strictNullChecks": false,
-    "noImplicitAny": false,
-    "strictBindCallApply": false,
-    "forceConsistentCasingInFileNames": false,
-    "noFallthroughCasesInSwitch": false,
-    "esModuleInterop": true,
-    "allowJs": true,
+    "target": "ESNext",
+    "jsx": "preserve",
+    "lib": ["DOM", "ESNext"],
+    "baseUrl": ".",
+    "module": "ESNext",
+    "moduleResolution": "node",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["src/*"]
     },
-    "types": ["vite/client", "vitest/globals", "@types/firefox-webext-browser"]
+    "resolveJsonModule": true,
+    "types": [
+      "vite/client",
+      "vite-plugin-vue-layouts/client",
+      "unplugin-vue-router/client"
+    ],
+    "allowJs": true,
+    "strict": true,
+    "strictNullChecks": true,
+    "noUnusedLocals": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "skipLibCheck": true
   },
-  "exclude": ["node_modules", "dist-sites"]
+  "include": [
+    "./src/typed-router.d.ts"
+  ],
+  "exclude": ["dist", "node_modules", "cypress"],
+  "references": [{ "path": "./tsconfig.node.json" }],
 }

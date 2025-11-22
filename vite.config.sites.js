@@ -23,10 +23,11 @@ export default defineConfig({
             '.vue',
         ],
     },
+    base: "/dist",
     build: {
         minify: true,
         sourcemap: true,
-        outDir: "dist-sites",
+        outDir: "./dist",
         rollupOptions: {
             input: {
                 appOptions: fileURLToPath(new URL('./options/index.html', import.meta.url)),
