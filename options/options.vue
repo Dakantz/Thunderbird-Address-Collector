@@ -4,7 +4,7 @@
 import { onMounted, reactive, watch } from 'vue';
 import FolderTree from './components/FolderTree.vue';
 import { Settings, SettingsManager } from '../utils/util';
-import { syncAddressBook, SyncCb } from '../utils/syncer';
+import { SyncCb, Syncer } from '../utils/syncer';
 const sman = new SettingsManager();
 sman.loadConfig();
 const ui_state = reactive({
@@ -34,9 +34,10 @@ watch(() => ui_state, async (newState) => {
 
 function syncNow() {
     console.log("Sync Now clicked");
-    syncAddressBook((s) => {
+    let syncer = new Syncer((s) => {
         ui_state.syncState = reactive(s);
     });
+    syncer.syncFull();
 }
 
 </script>
@@ -44,11 +45,12 @@ function syncNow() {
 <template>
     <div>
         <h1>Address Collector</h1>
-        <h2>Intervals</h2>
+        <h2>Autosync</h2>
         <div>
-            <label for="sync-interval">Sync Interval (minutes):</label>
-            <input type="number" id="sync-interval" v-model.number="ui_state.sman.settings.syncIntervalMinutes"
-                min="1" />
+            <label>
+                <input type="checkbox" v-model="ui_state.sman.settings.autoSync" />
+                Sync on new mail / Thunderbird startup
+            </label>
         </div>
         <button @click="syncNow">Sync Now!</button>
         <p>{{ ui_state.syncState?.msg }}</p>

@@ -52,7 +52,6 @@ export class Settings {
     constructor(
         public syncAllFolders: boolean,
         public syncedFolders: SyncedFolder[],
-        public syncIntervalMinutes: number,
         public autoSync: boolean,
         public targetAddressBook?: string,
     ) { }
@@ -63,7 +62,6 @@ export class SettingsManager {
         this.settings = new Settings(
             false,
             [],
-            15,
             true
         );
     }
