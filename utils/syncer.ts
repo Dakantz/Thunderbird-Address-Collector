@@ -117,6 +117,7 @@ export class Syncer {
             let msgCount = 0;
             let messages = listMessages(folder);
             for await (let message of messages) {
+                await this.syncMessage(message);
             }
         }
         this.progressUpdate(1, `Sync completed.`);
