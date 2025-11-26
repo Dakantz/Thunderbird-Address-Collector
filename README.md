@@ -10,7 +10,7 @@ Thunderbird-Address-Collector is a simple Thunderbird extension that automatical
 2. Build the extension:
 ```
     npm install
-    npm run build
+    npm run release
 ```
 or build in watch mode:
 ```
